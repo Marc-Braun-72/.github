@@ -17,13 +17,14 @@ jobs:
       - name: Generate Snake Animation
         uses: Platane/snk@v2
         with:
-          github_user_name: Marc-Braun-72 
+          github_user_name: Marc-Braun-72  
           outputs: svg
-          output_path: dist/snake.svg 
+          output_path: dist/snake.svg  
+
 
       - name: Push Snake Animation to Output Branch
         uses: ad-m/github-push-action@master
         with:
-          branch: output  
+          branch: output 
           force: true
           directory: dist
