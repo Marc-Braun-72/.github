@@ -2,8 +2,8 @@ name: Generate Snake
 
 on:
   schedule:
-    - cron: "0 5 * * *"  
-  workflow_dispatch:  
+    - cron: "0 5 * * *"  # Läuft um 5 Uhr UTC jeden Tag
+  workflow_dispatch:  # Ermöglicht die manuelle Ausführung
 
 jobs:
   build:
@@ -13,20 +13,18 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-
+      # Generate the snake animation
       - name: Generate Snake Animation
         uses: Platane/snk@v2
         with:
-          github_user_name: Marc-Braun-72  
+          github_user_name: Marc-Braun-72  # Ersetze das hier mit deinem GitHub-Benutzernamen
           outputs: svg
-          output_path: dist/snake.svg  
+          output_path: dist/snake.svg
 
-
+      # Push the snake animation to the output branch
       - name: Push Snake Animation to Output Branch
         uses: ad-m/github-push-action@master
         with:
-          branch: output 
+          branch: output
           force: true
           directory: dist
-
-          
