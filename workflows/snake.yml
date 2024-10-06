@@ -1,22 +1,36 @@
-name: Generate Snake
+name: Generate Snake Animation
 
+# Setze die Berechtigungen für den GITHUB_TOKEN
+permissions:
+  contents: write
+
+# Definiere, wann der Workflow ausgeführt werden soll
 on:
-  workflow_dispatch:  # Ermöglicht die manuelle Ausführung
+  # Täglich um Mitternacht UTC
+  schedule:
+    - cron: '0 0 * * *'
+  # Manuell auslösbar
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
+      # Schritt 1: Repository auschecken
       - name: Checkout Repository
         uses: actions/checkout@v3
 
-      # Generate the snake animation (using an older version for compatibility)
+      # Schritt 2: Generiere die Snake Animation
       - name: Generate Snake Animation
-        uses: Platane/snk@v2
+        uses: Platane/snk@v2.2.1
         with:
+          # Gib hier deinen GitHub-Benutzernamen an
           github_user_name: Marc-Braun-72
+          outputs: dist/snake.svg
 
-      - name: Debugging Info
-        run: |
-          echo "Snake Animation Generation finished"
+      # Schritt 3: Committe und pushe die generierte Datei
+      - name: Commit & Push changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "Update Snake Animation"
+          file_pattern: dist/snake.svg
