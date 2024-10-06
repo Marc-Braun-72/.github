@@ -22,7 +22,7 @@ jobs:
 
       # Schritt 2: Generiere die Snake Animation
       - name: Generate Snake Animation
-        uses: Platane/snk@v2.2.1
+        uses: Platane/snk@v3
         with:
           # Gib hier deinen GitHub-Benutzernamen an
           github_user_name: Marc-Braun-72
