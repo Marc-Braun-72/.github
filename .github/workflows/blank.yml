@@ -15,7 +15,7 @@ jobs:
 
       # Generate the snake animation
       - name: Generate Snake Animation
-        uses: Platane/snk@v4
+        uses: Platane/snk@v3
         with:
           github_user_name: Marc-Braun-72  
 
