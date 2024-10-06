@@ -11,11 +11,11 @@ jobs:
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v3 
+        uses: actions/checkout@v4
 
       # Generate the snake animation
       - name: Generate Snake Animation
-        uses: Platane/snk@v2
+        uses: Platane/snk@v4
         with:
           github_user_name: Marc-Braun-72  
 
