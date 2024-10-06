@@ -18,7 +18,7 @@ jobs:
     steps:
       # Schritt 1: Repository auschecken
       - name: Checkout Repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       # Schritt 2: Generiere die Snake Animation
       - name: Generate Snake Animation
